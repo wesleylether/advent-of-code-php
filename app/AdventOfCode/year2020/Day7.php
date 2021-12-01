@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\AdventOfCode\year2020;
 
 use App\AdventOfCode\BaseAdventOfCodeDay;
-use App\AdventOfCode\year2020\Components\Day7Bag;
+use App\AdventOfCode\year2020\Components\Year2020Day7Bag;
 use Illuminate\Support\Facades\Cache;
 
 class Day7 extends BaseAdventOfCodeDay
@@ -16,7 +16,7 @@ class Day7 extends BaseAdventOfCodeDay
             \preg_match('/^(.+)\sbags contain\s(.+)$/', $line, $matches);
             [, $name, $contents] = $matches;
 
-            $bag = Cache::get($name, new Day7Bag($name));
+            $bag = Cache::get($name, new Year2020Day7Bag($name));
             foreach (\explode(', ', $contents) as $content) {
                 if (str_starts_with($content, 'no')) {
                     continue;
@@ -27,7 +27,7 @@ class Day7 extends BaseAdventOfCodeDay
 
                 $contentBag = Cache::get(
                     $contentName,
-                    new Day7Bag($contentName),
+                    new Year2020Day7Bag($contentName),
                 );
                 $bag->contains[] = [
                     'quantity' => $contentCount,
@@ -40,8 +40,9 @@ class Day7 extends BaseAdventOfCodeDay
         }
     }
 
-    private function howManyBagsCanContainAShinyGoldBag(Day7Bag $bag): int
-    {
+    private function howManyBagsCanContainAShinyGoldBag(
+        Year2020Day7Bag $bag,
+    ): int {
         $containers = [];
         $candidates = $bag->containedBy;
         while ($candidate = \array_shift($candidates)) {

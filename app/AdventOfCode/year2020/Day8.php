@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace App\AdventOfCode\year2020;
 
 use App\AdventOfCode\BaseAdventOfCodeDay;
-use App\AdventOfCode\year2020\Components\Day8Instruction;
-use App\AdventOfCode\year2020\Components\Day8Program;
+use App\AdventOfCode\year2020\Components\Year2020Day8Instruction;
+use App\AdventOfCode\year2020\Components\Year2020Day8Program;
 use Illuminate\Support\Facades\Cache;
 
 class Day8 extends BaseAdventOfCodeDay
@@ -32,14 +32,14 @@ class Day8 extends BaseAdventOfCodeDay
         foreach ($this->input as $line) {
             \preg_match('/^(\w{3})\s([-+]\d+)/', $line, $matches);
             [, $type, $value] = $matches;
-            $instructions[] = new Day8Instruction($type, (int) $value);
+            $instructions[] = new Year2020Day8Instruction($type, (int) $value);
         }
         return $instructions;
     }
 
     private function getAccumulator(): int
     {
-        $program = new Day8Program($this->getInstructions());
+        $program = new Year2020Day8Program($this->getInstructions());
         $program->run();
 
         return $program->accumulator;
@@ -49,15 +49,15 @@ class Day8 extends BaseAdventOfCodeDay
     {
         foreach ($this->getInstructions() as $index => $instruction) {
             $instructions = $this->getInstructions();
-            /** @var Day8Instruction $instructionToCheck */
+            /** @var Year2020Day8Instruction $instructionToCheck */
             $instructionToCheck = $instructions[$index];
             if ($instructionToCheck->type === 'nop') {
-                $instructions[$index] = new Day8Instruction(
+                $instructions[$index] = new Year2020Day8Instruction(
                     'jmp',
                     $instructionToCheck->value,
                 );
             } elseif ($instructionToCheck->type === 'jmp') {
-                $instructions[$index] = new Day8Instruction(
+                $instructions[$index] = new Year2020Day8Instruction(
                     'nop',
                     $instructionToCheck->value,
                 );
@@ -65,7 +65,7 @@ class Day8 extends BaseAdventOfCodeDay
                 continue;
             }
 
-            $program = new Day8Program($instructions);
+            $program = new Year2020Day8Program($instructions);
             $program->run();
 
             if (!$program->isInfinite) {

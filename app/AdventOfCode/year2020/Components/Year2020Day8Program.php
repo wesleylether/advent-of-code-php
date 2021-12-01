@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020\Components;
 
-final class Day8Program
+final class Year2020Day8Program
 {
     public int $index = 0;
     public int $accumulator = 0;
@@ -29,7 +29,7 @@ final class Day8Program
             }
 
             $this->seen[$this->index] = true;
-            /** @var Day8Instruction $instruction */
+            /** @var Year2020Day8Instruction $instruction */
             $instruction = $this->instructions[$this->index];
             $instruction($this);
         }

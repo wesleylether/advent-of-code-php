@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020\Components;
 
-final class Day7Bag
+final class Year2020Day7Bag
 {
     public string $name;
     public array $contains = [];

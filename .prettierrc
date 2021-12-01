@@ -1,0 +1,8 @@
+{
+    "phpVersion": "8.0",
+    "braceStyle": "psr-2",
+    "printWidth": 80,
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": true
+}

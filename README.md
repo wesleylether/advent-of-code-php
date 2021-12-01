@@ -18,3 +18,9 @@ php artisan advent:of:code 2020 1
 # to run only part 2
 php artisan advent:of:code 2020 2 --two
 ```
+
+### How to create
+in the folder `storage/app/<year>/<day>/input` you can add the input values.
+These files need to exist.
+
+then in the folder `app/AdventOfCode/year<year>/Day<day>.php` you can create classes that extend `app/AdventOfCode/BaseAdventOfCodeDay.php`

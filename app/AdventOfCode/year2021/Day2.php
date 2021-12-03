@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
 
-final class Day2 extends \App\AdventOfCode\BaseAdventOfCodeDay
+use App\AdventOfCode\BaseAdventOfCodeDay;
+
+final class Day2 extends BaseAdventOfCodeDay
 {
     public function one(): void
     {

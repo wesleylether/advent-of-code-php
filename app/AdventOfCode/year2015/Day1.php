@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\AdventOfCode\Year2015;
+namespace App\AdventOfCode\year2015;
 
 use App\AdventOfCode\BaseAdventOfCodeDay;
 use function dd;

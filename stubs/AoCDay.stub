@@ -1,0 +1,25 @@
+<?php
+declare(strict_types=1);
+
+namespace $NAMESPACE$;
+
+use App\AdventOfCode\BaseAdventOfCodeDay;
+
+final class $CLASS_NAME$ extends BaseAdventOfCodeDay
+{
+    public function one(): void
+    {
+        // create part 1
+
+        $this->info('question?');
+        $this->line($this->input);
+    }
+
+    public function two(): void
+    {
+        // create part 2
+
+        $this->info('question?');
+        $this->line($this->input);
+    }
+}

@@ -5,17 +5,28 @@ namespace App\AdventOfCode;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use function explode;
 
 abstract class BaseAdventOfCodeDay
 {
     protected Command $command;
     protected array $input;
+    protected array $example;
 
     public function __construct(Command $command, string $inputFile)
     {
         $this->command = $command;
         $file = Storage::get($inputFile);
-        $this->input = \explode("\n", \rtrim($file));
+        $this->input = explode("\n", \rtrim($file));
+
+        $exampleFile = Str::replace('input', 'example', $inputFile);
+        if (Storage::exists($exampleFile)) {
+            $example = Storage::get($exampleFile);
+            if ($example) {
+                $this->example = explode("\n", $example);
+            }
+        }
     }
 
     public function newline(int $lines = 1): void

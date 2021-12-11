@@ -24,7 +24,7 @@ abstract class BaseAdventOfCodeDay
         if (Storage::exists($exampleFile)) {
             $example = Storage::get($exampleFile);
             if ($example) {
-                $this->example = explode("\n", $example);
+                $this->example = explode("\n", rtrim($example));
             }
         }
     }

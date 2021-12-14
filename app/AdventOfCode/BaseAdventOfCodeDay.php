@@ -12,7 +12,6 @@ abstract class BaseAdventOfCodeDay
 {
     protected Command $command;
     protected array $input;
-    protected array $example;
 
     public function __construct(Command $command, string $inputFile)
     {
@@ -20,11 +19,13 @@ abstract class BaseAdventOfCodeDay
         $file = Storage::get($inputFile);
         $this->input = explode("\n", \rtrim($file));
 
-        $exampleFile = Str::replace('input', 'example', $inputFile);
-        if (Storage::exists($exampleFile)) {
-            $example = Storage::get($exampleFile);
-            if ($example) {
-                $this->example = explode("\n", rtrim($example));
+        if ($command->option('example')) {
+            $exampleFile = Str::replace('input', 'example', $inputFile);
+            if (Storage::exists($exampleFile)) {
+                $example = Storage::get($exampleFile);
+                if ($example) {
+                    $this->input = explode("\n", rtrim($example));
+                }
             }
         }
     }

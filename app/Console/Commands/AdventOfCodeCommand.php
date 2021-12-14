@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 
 class AdventOfCodeCommand extends Command
 {
-    protected $signature = 'advent:of:code {year : Year of advent} {day : Day of advent year} {--one : Run part 1} {--two : Run part 2}';
+    protected $signature = 'advent:of:code {year : Year of advent} {day : Day of advent year} {--one : Run part 1} {--two : Run part 2} {--example : Run with example file if exists}';
     protected $description = 'Run results of Advent of Code';
 
     private $time;

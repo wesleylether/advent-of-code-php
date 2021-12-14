@@ -26,6 +26,9 @@ abstract class BaseAdventOfCodeDay
                 if ($example) {
                     $this->input = explode("\n", rtrim($example));
                 }
+            } else {
+                $this->error('Example file does not exists');
+                exit();
             }
         }
     }

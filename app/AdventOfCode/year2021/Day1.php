@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\AdventOfCode\year2021;
 
 use App\AdventOfCode\BaseAdventOfCodeDay;
-use App\AdventOfCode\year2021\DTO\Year2021Day1DTO;
+use App\AdventOfCode\year2021\DTO\Day1DTO;
 
 final class Day1 extends BaseAdventOfCodeDay
 {
@@ -31,32 +31,36 @@ final class Day1 extends BaseAdventOfCodeDay
 
     public function two(): void
     {
-        $dto = new Year2021Day1DTO();
-        $dto->input = $this->input;
+        $dto = [
+            'input' => $this->input,
+            'index' => 0,
+            'increases' => 0,
+            'previous' => 0,
+        ];
 
         $result = \array_reduce(
             $this->input,
-            static function (Year2021Day1DTO $dto, int $current) {
+            static function (array $dto, int $current) {
                 if (
                     isset(
-                        $dto->input[$dto->index],
-                        $dto->input[$dto->index + 1],
-                        $dto->input[$dto->index + 2],
+                        $dto['input'][$dto['index']],
+                        $dto['input'][$dto['index'] + 1],
+                        $dto['input'][$dto['index'] + 2],
                     )
                 ) {
                     $sum = \array_sum([
-                        $dto->input[$dto->index],
-                        $dto->input[$dto->index + 1],
-                        $dto->input[$dto->index + 2],
+                        $dto['input'][$dto['index']],
+                        $dto['input'][$dto['index'] + 1],
+                        $dto['input'][$dto['index'] + 2],
                     ]);
-                    if ($dto->previous > 0 && $sum > $dto->previous) {
-                        $dto->increases++;
+                    if ($dto['previous'] > 0 && $sum > $dto['previous']) {
+                        $dto['increases']++;
                     }
 
-                    $dto->previous = $sum;
+                    $dto['previous'] = $sum;
                 }
 
-                $dto->index++;
+                $dto['index']++;
 
                 return $dto;
             },
@@ -66,6 +70,6 @@ final class Day1 extends BaseAdventOfCodeDay
         $this->info(
             'Consider sums of a three-measurement sliding window. How many sums are larger than the previous sum?',
         );
-        $this->line($result->increases);
+        $this->line($result['increases']);
     }
 }

@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\AdventOfCode\year2021\Components;
+namespace App\AdventOfCode\year2021\Helpers\Day4;
 
 use function array_merge;
 use function array_shift;
 use function in_array;
 
-final class Year2021Day4Bingo
+final class Bingo
 {
     public function __construct(public array $rows = [])
     {

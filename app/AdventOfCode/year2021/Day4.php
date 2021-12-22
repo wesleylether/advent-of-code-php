@@ -4,11 +4,10 @@ declare(strict_types=1);
 namespace App\AdventOfCode\year2021;
 
 use App\AdventOfCode\BaseAdventOfCodeDay;
-use App\AdventOfCode\year2021\Components\Year2021Day4Bingo;
+use App\AdventOfCode\year2021\Helpers\Day4\Bingo;
 use function array_map;
 use function array_pop;
 use function array_shift;
-use function dd;
 use function explode;
 use function preg_match;
 
@@ -44,7 +43,7 @@ final class Day4 extends BaseAdventOfCodeDay
 
             /**
              * @var int $index
-             * @var Year2021Day4Bingo $bingoCard
+             * @var Bingo $bingoCard
              */
             foreach ($bingoCards as $index => $bingoCard) {
                 $bingoCard->addBingoNumber($number);
@@ -54,7 +53,7 @@ final class Day4 extends BaseAdventOfCodeDay
             }
         }
 
-        /** @var Year2021Day4Bingo $lastWinningBingoCard */
+        /** @var Bingo $lastWinningBingoCard */
         $lastWinningBingoCard = array_pop($bingoCards);
         while (!$lastWinningBingoCard->hasBingo()) {
             $number = array_shift($numbers);
@@ -69,7 +68,7 @@ final class Day4 extends BaseAdventOfCodeDay
     {
         $numbers = [];
         $bingoCards = [];
-        $bingo = new Year2021Day4Bingo();
+        $bingo = new Bingo();
         foreach ($this->input as $index => $input) {
             if ($index === 0) {
                 $numbers = array_map(
@@ -83,7 +82,7 @@ final class Day4 extends BaseAdventOfCodeDay
             if ($input === '') {
                 if ($index !== 1) {
                     $bingoCards[] = $bingo;
-                    $bingo = new Year2021Day4Bingo();
+                    $bingo = new Bingo();
                 }
                 continue;
             }

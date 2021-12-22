@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace App\AdventOfCode\year2020\Components;
+namespace App\AdventOfCode\year2020\Helpers\Day8;
 
-final class Year2020Day8Instruction
+final class Instruction
 {
     private const ACC = 'acc';
     private const JMP = 'jmp';
@@ -17,7 +17,7 @@ final class Year2020Day8Instruction
         $this->value = $value;
     }
 
-    public function __invoke(Year2020Day8Program $program)
+    public function __invoke(Program $program)
     {
         switch ($this->type) {
             case self::ACC:

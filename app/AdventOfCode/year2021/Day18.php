@@ -1,13 +1,14 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
 
 use App\AdventOfCode\BaseAdventOfCodeDay;
 use App\AdventOfCode\year2021\Helpers\Day18\SnailNumber;
-use JsonException;
 use function array_map;
 use function array_reduce;
+use JsonException;
 
 final class Day18 extends BaseAdventOfCodeDay
 {
@@ -24,6 +25,7 @@ final class Day18 extends BaseAdventOfCodeDay
 
                 $newNumber = new SnailNumber("[$carry, $current]");
                 $newNumber->reduce();
+
                 return $newNumber;
             },
             null,

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020;
@@ -33,6 +34,7 @@ class Day8 extends BaseAdventOfCodeDay
             [, $type, $value] = $matches;
             $instructions[] = new Instruction($type, (int) $value);
         }
+
         return $instructions;
     }
 
@@ -67,7 +69,7 @@ class Day8 extends BaseAdventOfCodeDay
             $program = new Program($instructions);
             $program->run();
 
-            if (!$program->isInfinite) {
+            if (! $program->isInfinite) {
                 return $program->accumulator;
             }
         }

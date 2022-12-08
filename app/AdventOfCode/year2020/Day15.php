@@ -1,21 +1,23 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020;
 
 use App\AdventOfCode\BaseAdventOfCodeDay;
-use function Psy\debug;
 
 class Day15 extends BaseAdventOfCodeDay
 {
     protected int $turn = 1;
+
     protected array $numbers;
+
     protected array $count;
 
     public function one(): void
     {
         $input = \array_reverse(
-            \array_map(static fn($value) => (int) $value, $this->input),
+            \array_map(static fn ($value) => (int) $value, $this->input),
         );
 
         $this->info('what will be the 2020th number spoken?');
@@ -37,7 +39,7 @@ class Day15 extends BaseAdventOfCodeDay
     {
         while (count($input) !== $turn) {
             $lastDigit = \array_shift($input);
-            if (!\in_array($lastDigit, $input, true)) {
+            if (! \in_array($lastDigit, $input, true)) {
                 \array_unshift($input, 0, $lastDigit);
             } else {
                 $stepsBack = \array_search($lastDigit, $input, true);

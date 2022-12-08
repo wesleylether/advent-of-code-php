@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
@@ -59,7 +60,7 @@ final class Day10 extends BaseAdventOfCodeDay
 
             $score = array_reduce(
                 $missing,
-                static fn($carry, $item) => $carry * 5 + $lookup[$item],
+                static fn ($carry, $item) => $carry * 5 + $lookup[$item],
                 0,
             );
             $scores[] = $score;
@@ -84,34 +85,40 @@ final class Day10 extends BaseAdventOfCodeDay
                     case '[':
                     case '<':
                         $data[] = $char;
+
                         continue 2;
                     case ')':
                         if (last($data) === '(') {
                             array_pop($data);
+
                             continue 2;
                         }
                         break;
                     case '}':
                         if (last($data) === '{') {
                             array_pop($data);
+
                             continue 2;
                         }
                         break;
                     case ']':
                         if (last($data) === '[') {
                             array_pop($data);
+
                             continue 2;
                         }
                         break;
                     case '>':
                         if (last($data) === '<') {
                             array_pop($data);
+
                             continue 2;
                         }
                         break;
                 }
 
                 $corrupted[] = [$char => $line];
+
                 continue 2;
             }
 

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020;
@@ -23,6 +24,7 @@ class Day5 extends BaseAdventOfCodeDay
                 'ID' => $row * 8 + $column,
             ];
         }
+
         return $boardingPasses;
     }
 
@@ -57,7 +59,7 @@ class Day5 extends BaseAdventOfCodeDay
         $availableSeats = \array_diff($seats, $seatsTaken);
         $frontSeatsRemoved = \array_filter(
             $availableSeats,
-            static fn($seat) => $seat > 7 && $seat < 127 * 8,
+            static fn ($seat) => $seat > 7 && $seat < 127 * 8,
         );
         $this->info('Available seat:');
         $this->line($frontSeatsRemoved);

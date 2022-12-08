@@ -1,7 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
-if (!function_exists('numbers')) {
+if (! function_exists('numbers')) {
     function numbers(
         string|array $values,
         string|null $explodeSeparator = null,
@@ -14,11 +15,11 @@ if (!function_exists('numbers')) {
             }
         }
 
-        return array_map(static fn($x) => (int) $x, $values);
+        return array_map(static fn ($x) => (int) $x, $values);
     }
 }
 
-if (!function_exists('grid')) {
+if (! function_exists('grid')) {
     function grid(
         array $input,
         bool $numbers = true,

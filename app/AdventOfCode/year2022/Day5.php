@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2022;
@@ -33,7 +34,6 @@ final class Day5 extends BaseAdventOfCodeDay
         foreach ($this->getInstructions() as [$count, $from, $to]) {
             $boxes = [];
             foreach (range(1, $count) as $index) {
-
                 $boxes[] = array_pop($stacks[$from]);
             }
             $stacks[$to] = [...$stacks[$to], ...array_reverse($boxes)];
@@ -46,7 +46,6 @@ final class Day5 extends BaseAdventOfCodeDay
 
         $this->info('After the rearrangement procedure completes, what crate ends up on top of each stack?');
         $this->line($ends);
-
     }
 
     protected function getStacks(): array
@@ -63,16 +62,16 @@ final class Day5 extends BaseAdventOfCodeDay
             9 => [],
         ];
 
-       foreach(array_slice($this->input, 0, 8) as $layer) {
-           foreach (range(1, 9) as $index) {
-               $box = $layer[($index * 4 - 2) - 1];
-               if (!empty(trim($box))) {
-                   array_unshift($stacks[$index], $box);
-               }
-           }
-       }
+        foreach (array_slice($this->input, 0, 8) as $layer) {
+            foreach (range(1, 9) as $index) {
+                $box = $layer[($index * 4 - 2) - 1];
+                if (! empty(trim($box))) {
+                    array_unshift($stacks[$index], $box);
+                }
+            }
+        }
 
-       return $stacks;
+        return $stacks;
     }
 
     protected function getInstructions(): \Generator
@@ -80,7 +79,7 @@ final class Day5 extends BaseAdventOfCodeDay
         foreach (array_slice($this->input, 10) as $instruction) {
             preg_match('/move (\d+) from (\d+) to (\d+)/', $instruction, $matches);
             [,$count, $from, $to] = $matches;
-            yield [(int)$count, (int)$from, (int)$to];
+            yield [(int) $count, (int) $from, (int) $to];
         }
     }
 }

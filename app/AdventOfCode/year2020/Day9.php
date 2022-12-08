@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020;
@@ -38,6 +39,7 @@ class Day9 extends BaseAdventOfCodeDay
                 \array_shift($preambleNumbersList);
                 $preambleNumbersList[] = \array_shift($list);
                 $sum = (int) $list[0];
+
                 continue;
             }
 
@@ -56,6 +58,7 @@ class Day9 extends BaseAdventOfCodeDay
                 }
             }
         }
+
         return false;
     }
 
@@ -65,8 +68,8 @@ class Day9 extends BaseAdventOfCodeDay
     ): int {
         $length = count($list);
 
-        for ($size = 2; ; ++$size) {
-            for ($i = 0; $i < $length - $size; ++$i) {
+        for ($size = 2; ; $size++) {
+            for ($i = 0; $i < $length - $size; $i++) {
                 $numbers = \array_slice($list, $i, $size);
                 if (\array_sum($numbers) === $breakingNumber) {
                     return \min($numbers) + \max($numbers);

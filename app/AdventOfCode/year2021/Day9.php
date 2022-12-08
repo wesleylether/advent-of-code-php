@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
@@ -62,7 +63,7 @@ final class Day9 extends BaseAdventOfCodeDay
         $seen = [];
         foreach ($grid as $y => $row) {
             foreach ($row as $x => $point) {
-                if ($point !== 9 && !in_array("$y|$x", $seen, true)) {
+                if ($point !== 9 && ! in_array("$y|$x", $seen, true)) {
                     $basinSize = 0;
                     $queue = [[$y, $x]];
                     while (count($queue) > 0) {
@@ -71,7 +72,7 @@ final class Day9 extends BaseAdventOfCodeDay
                             continue;
                         }
                         $seen[] = "$yy|$xx";
-                        ++$basinSize;
+                        $basinSize++;
                         if (isset($grid[$yy][$xx - 1])) {
                             $d = $grid[$yy][$xx - 1];
                             if ($d !== 9) {
@@ -117,6 +118,7 @@ final class Day9 extends BaseAdventOfCodeDay
         foreach ($this->input as $item) {
             $grid[] = numbers($item);
         }
+
         return $grid;
     }
 }

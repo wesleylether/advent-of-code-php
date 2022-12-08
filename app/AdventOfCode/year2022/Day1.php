@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2022;
@@ -30,19 +31,22 @@ final class Day1 extends BaseAdventOfCodeDay
     protected function getList(): array
     {
         $index = 1;
+
         return array_reduce(
             $this->input,
             static function ($carry, $item) use (&$index) {
                 if (empty($item)) {
                     $index++;
+
                     return $carry;
                 }
 
-                if (!isset($carry[$index])) {
+                if (! isset($carry[$index])) {
                     $carry[$index] = 0;
                 }
 
-                $carry[$index]+= (int)$item;
+                $carry[$index] += (int) $item;
+
                 return $carry;
             },
         );

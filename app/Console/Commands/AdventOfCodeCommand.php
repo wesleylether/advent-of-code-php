@@ -8,6 +8,7 @@ use Illuminate\Console\Command;
 class AdventOfCodeCommand extends Command
 {
     protected $signature = 'advent:of:code {year : Year of advent} {day : Day of advent year} {--one : Run part 1} {--two : Run part 2} {--example : Run with example file if exists}';
+
     protected $description = 'Run results of Advent of Code';
 
     private $time;
@@ -27,7 +28,7 @@ class AdventOfCodeCommand extends Command
             /** @var BaseAdventOfCodeDay $solution */
             $solution = new $adventOfCodeClass($this, $filePath);
 
-            if (!$one && !$two) {
+            if (! $one && ! $two) {
                 $this->info('Part 1:');
                 $this->start();
                 $solution->one();

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
@@ -9,7 +10,6 @@ use function array_reduce;
 use function bindec;
 use function str_split;
 use function strlen;
-use function substr;
 
 final class Day3 extends BaseAdventOfCodeDay
 {
@@ -18,7 +18,7 @@ final class Day3 extends BaseAdventOfCodeDay
         $calculation = [];
         foreach ($this->input as $index => $item) {
             $values = array_map(
-                static fn($item) => (int) $item,
+                static fn ($item) => (int) $item,
                 str_split($item),
             );
 

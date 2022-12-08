@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2022;
@@ -13,6 +14,7 @@ final class Day4 extends BaseAdventOfCodeDay
         foreach ($this->getPairs() as [$a1, $a2, $b1, $b2]) {
             if ($a1 >= $b1 && $a2 <= $b2) {
                 $count++;
+
                 continue;
             }
 
@@ -31,7 +33,7 @@ final class Day4 extends BaseAdventOfCodeDay
         foreach ($this->getPairs() as [$a1, $a2, $b1, $b2]) {
             $rangeA = range($a1, $a2);
             $rangeB = range($b1, $b2);
-            if(count(array_intersect($rangeA, $rangeB))) {
+            if (count(array_intersect($rangeA, $rangeB))) {
                 $count++;
             }
         }
@@ -42,7 +44,7 @@ final class Day4 extends BaseAdventOfCodeDay
 
     protected function getPairs(): \Generator
     {
-       foreach ($this->input as $item) {
+        foreach ($this->input as $item) {
             preg_match('/(\d+)-(\d+),(\d+)-(\d+)/', $item, $matches);
             [,$a1, $a2, $b1, $b2] = $matches;
             yield [$a1, $a2, $b1, $b2];

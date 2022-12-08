@@ -1,10 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2015;
 
 use App\AdventOfCode\BaseAdventOfCodeDay;
-use function dd;
 use function str_split;
 
 final class Day1 extends BaseAdventOfCodeDay

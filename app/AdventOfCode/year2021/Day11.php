@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
@@ -8,6 +9,7 @@ use App\AdventOfCode\BaseAdventOfCodeDay;
 final class Day11 extends BaseAdventOfCodeDay
 {
     protected array $grid = [];
+
     protected int $flashes = 0;
 
     public function one(): void

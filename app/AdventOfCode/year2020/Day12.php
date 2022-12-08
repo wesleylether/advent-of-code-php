@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020;
@@ -8,11 +9,17 @@ use App\AdventOfCode\BaseAdventOfCodeDay;
 class Day12 extends BaseAdventOfCodeDay
 {
     private const NORTH = 'N';
+
     private const SOUTH = 'S';
+
     private const EAST = 'E';
+
     private const WEST = 'W';
+
     private const LEFT = 'L';
+
     private const RIGHT = 'R';
+
     private const FORWARD = 'F';
 
     public function one(): void

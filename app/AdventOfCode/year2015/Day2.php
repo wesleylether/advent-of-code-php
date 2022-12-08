@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2015;
@@ -6,7 +7,6 @@ namespace App\AdventOfCode\year2015;
 use App\AdventOfCode\BaseAdventOfCodeDay;
 use function array_map;
 use function array_pop;
-use function dd;
 use function min;
 use function preg_match;
 
@@ -18,7 +18,7 @@ final class Day2 extends BaseAdventOfCodeDay
         foreach ($this->input as $dimension) {
             preg_match('/^(\d+)x(\d+)x(\d+)$/', $dimension, $matches);
             [, $l, $w, $h] = array_map(
-                static fn($match) => (int) $match,
+                static fn ($match) => (int) $match,
                 $matches,
             );
 
@@ -42,7 +42,7 @@ final class Day2 extends BaseAdventOfCodeDay
         foreach ($this->input as $dimension) {
             preg_match('/^(\d+)x(\d+)x(\d+)$/', $dimension, $matches);
             [, $l, $w, $h] = array_map(
-                static fn($match) => (int) $match,
+                static fn ($match) => (int) $match,
                 $matches,
             );
             $sides = [$l, $w, $h];

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
@@ -34,8 +35,8 @@ final class Day15 extends BaseAdventOfCodeDay
         $dc = [0, 1, 0, -1];
 
         $d = array_map(
-            static fn() => array_map(
-                static fn() => null,
+            static fn () => array_map(
+                static fn () => null,
                 range(0, $nTiles * $cCount),
             ),
             range(0, $nTiles * $rCount),
@@ -44,7 +45,7 @@ final class Day15 extends BaseAdventOfCodeDay
         $q->insert([0, 0], 0);
         $q->setExtractFlags(PQueue::EXTR_BOTH);
 
-        while (!$q->isEmpty()) {
+        while (! $q->isEmpty()) {
             $item = $q->extract();
             [$r, $c] = $item['data'];
             $dist = $item['priority'];

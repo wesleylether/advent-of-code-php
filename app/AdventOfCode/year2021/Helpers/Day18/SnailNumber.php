@@ -1,14 +1,16 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021\Helpers\Day18;
 
-use JsonException;
 use function json_decode;
+use JsonException;
 
 final class SnailNumber
 {
     public int|SnailNumber $left;
+
     public int|SnailNumber $right;
 
     /**
@@ -46,6 +48,7 @@ final class SnailNumber
         while ($current->parent !== null) {
             if (is_int($current->parent->{$alpha})) {
                 $current->parent->{$alpha} += $this->{$alpha};
+
                 return;
             }
 
@@ -54,6 +57,7 @@ final class SnailNumber
                 while (true) {
                     if (is_int($current->{$bravo})) {
                         $current->{$bravo} += $this->{$alpha};
+
                         return;
                     }
                     $current = $current->{$bravo};
@@ -109,6 +113,7 @@ final class SnailNumber
                 $snailNumber->left = (int) floor($value / 2);
                 $snailNumber->right = (int) ceil($value / 2);
                 $this->{$prop} = $snailNumber;
+
                 return true;
             }
 
@@ -116,6 +121,7 @@ final class SnailNumber
                 return true;
             }
         }
+
         return false;
     }
 
@@ -147,6 +153,7 @@ final class SnailNumber
         if ($magRight instanceof self) {
             $magRight = $this->right->magnitude();
         }
+
         return 3 * $magLeft + 2 * $magRight;
     }
 }

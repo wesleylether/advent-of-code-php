@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020;
@@ -48,7 +49,7 @@ class Day10 extends BaseAdventOfCodeDay
     public function getSortedInput(): array
     {
         $input = \array_map(
-            static fn($adapter) => (int) $adapter,
+            static fn ($adapter) => (int) $adapter,
             $this->input,
         );
         \sort($input);

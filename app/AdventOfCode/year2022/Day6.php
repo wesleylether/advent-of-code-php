@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2022;
@@ -28,7 +29,7 @@ final class Day6 extends BaseAdventOfCodeDay
         $chars = str_split($this->input[0]);
         $index = 0;
         $found = false;
-        while (!$found) {
+        while (! $found) {
             $markers = array_slice([...$chars], $index, $size);
             if (count(array_unique($markers)) === $size) {
                 $found = true;

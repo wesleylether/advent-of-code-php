@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
@@ -35,6 +36,7 @@ final class Day12 extends BaseAdventOfCodeDay
             $data[$a][] = $b;
             $data[$b][] = $a;
         }
+
         return $data;
     }
 
@@ -48,10 +50,11 @@ final class Day12 extends BaseAdventOfCodeDay
             [$direction, $visited, $twice] = array_shift($queue);
             if ($direction === 'end') {
                 $count++;
+
                 continue;
             }
             foreach ($data[$direction] as $d) {
-                if (!in_array($d, $visited, true)) {
+                if (! in_array($d, $visited, true)) {
                     $newVisited = $visited;
                     if (ctype_lower($d)) {
                         $newVisited[] = $d;
@@ -60,7 +63,7 @@ final class Day12 extends BaseAdventOfCodeDay
                 } elseif (
                     $smallTwice &&
                     $twice === false &&
-                    !in_array($d, ['start', 'end'], true)
+                    ! in_array($d, ['start', 'end'], true)
                 ) {
                     $queue[] = [$d, $visited, $d];
                 }

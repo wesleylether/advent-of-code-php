@@ -1,10 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
 
-use App\AdventOfCode\BaseAdventOfCodeDay;
 use function abs;
+use App\AdventOfCode\BaseAdventOfCodeDay;
 use function preg_match;
 use function range;
 
@@ -82,6 +83,7 @@ final class Day5 extends BaseAdventOfCodeDay
     {
         preg_match('/^(\d+),(\d+)\s->\s(\d+),(\d+)$/', $input, $matches);
         [, $x1, $y1, $x2, $y2] = $matches;
+
         return [(int) $x1, (int) $y1, (int) $x2, (int) $y2];
     }
 

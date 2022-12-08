@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
@@ -25,6 +26,7 @@ final class Day4 extends BaseAdventOfCodeDay
                         'What will your final score be if you choose that board?',
                     );
                     $this->line($number * $bingoCard->getSumOfNotCalled());
+
                     return;
                 }
             }
@@ -55,7 +57,7 @@ final class Day4 extends BaseAdventOfCodeDay
 
         /** @var Bingo $lastWinningBingoCard */
         $lastWinningBingoCard = array_pop($bingoCards);
-        while (!$lastWinningBingoCard->hasBingo()) {
+        while (! $lastWinningBingoCard->hasBingo()) {
             $number = array_shift($numbers);
             $lastWinningBingoCard->addBingoNumber($number);
         }
@@ -72,7 +74,7 @@ final class Day4 extends BaseAdventOfCodeDay
         foreach ($this->input as $index => $input) {
             if ($index === 0) {
                 $numbers = array_map(
-                    static fn($number) => (int) $number,
+                    static fn ($number) => (int) $number,
                     explode(',', $input),
                 );
 
@@ -84,6 +86,7 @@ final class Day4 extends BaseAdventOfCodeDay
                     $bingoCards[] = $bingo;
                     $bingo = new Bingo();
                 }
+
                 continue;
             }
 

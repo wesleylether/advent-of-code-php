@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
@@ -34,7 +35,7 @@ final class Day6 extends BaseAdventOfCodeDay
     protected function getInputNumbers(): array
     {
         return array_map(
-            static fn($number) => (int) $number,
+            static fn ($number) => (int) $number,
             explode(',', $this->input[0]),
         );
     }
@@ -49,6 +50,7 @@ final class Day6 extends BaseAdventOfCodeDay
                 if (--$number < 0) {
                     $fishToAdd++;
                     $fish[$index] = 6;
+
                     continue;
                 }
                 $fish[$index] = $number;
@@ -70,7 +72,7 @@ final class Day6 extends BaseAdventOfCodeDay
         $matrix = array_reduce(
             $fish,
             static function ($carry, $current) {
-                if (!array_key_exists($current, $carry)) {
+                if (! array_key_exists($current, $carry)) {
                     $carry[(int) $current] = 1;
                 } else {
                     $carry[(int) $current]++;

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020;
@@ -15,6 +16,7 @@ class Day14 extends BaseAdventOfCodeDay
         foreach ($this->input as $instruction) {
             if (str_starts_with($instruction, 'mask')) {
                 $mask = \str_replace('mask = ', '', $instruction);
+
                 continue;
             }
 
@@ -40,6 +42,7 @@ class Day14 extends BaseAdventOfCodeDay
         foreach ($this->input as $instruction) {
             if (str_starts_with($instruction, 'mask')) {
                 $mask = \str_replace('mask = ', '', $instruction);
+
                 continue;
             }
 
@@ -65,6 +68,7 @@ class Day14 extends BaseAdventOfCodeDay
     {
         if (false === ($strPos = \strpos($maskedMemAddress, 'X'))) {
             yield \bindec($maskedMemAddress);
+
             return;
         }
 
@@ -82,7 +86,7 @@ class Day14 extends BaseAdventOfCodeDay
         foreach (
             \array_filter(
                 \str_split($mask),
-                static fn($item) => $item !== $ignore,
+                static fn ($item) => $item !== $ignore,
             )
             as $key => $value
         ) {

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020;
@@ -9,10 +10,15 @@ use Illuminate\Support\Facades\Log;
 class Day11 extends BaseAdventOfCodeDay
 {
     private const PART_ONE = 'part-one';
+
     private const PART_TWO = 'part-two';
+
     private const EMPTY_SEAT = 'L';
+
     private const TAKEN_SEAT = '#';
+
     private const FLOOR = '.';
+
     protected array $grid = [];
 
     public function one(): void
@@ -33,6 +39,7 @@ class Day11 extends BaseAdventOfCodeDay
         foreach ($this->input as $index => $row) {
             $grid[$index] = \str_split($row);
         }
+
         return $grid;
     }
 
@@ -65,6 +72,7 @@ class Day11 extends BaseAdventOfCodeDay
             foreach ($row as $seatIndex => $seat) {
                 if ($seat === self::FLOOR) {
                     $new[$rowIndex][$seatIndex] = $seat;
+
                     continue;
                 }
 
@@ -101,7 +109,7 @@ class Day11 extends BaseAdventOfCodeDay
 
         if (
             $self === self::EMPTY_SEAT &&
-            !\in_array(self::TAKEN_SEAT, $aroundSeats, true)
+            ! \in_array(self::TAKEN_SEAT, $aroundSeats, true)
         ) {
             return self::TAKEN_SEAT;
         }
@@ -111,7 +119,7 @@ class Day11 extends BaseAdventOfCodeDay
             \count(
                 \array_filter(
                     $aroundSeats,
-                    static fn($seat) => $seat === self::TAKEN_SEAT,
+                    static fn ($seat) => $seat === self::TAKEN_SEAT,
                 ),
             ) >= 4
         ) {

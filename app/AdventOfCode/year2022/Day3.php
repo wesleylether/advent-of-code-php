@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2022;
@@ -12,7 +13,7 @@ final class Day3 extends BaseAdventOfCodeDay
         $score = 0;
 
         foreach ($this->input as $rucksack) {
-            $itemCount = (int)(strlen($rucksack) * 0.5);
+            $itemCount = (int) (strlen($rucksack) * 0.5);
             [$left, $right] = str_split($rucksack, $itemCount);
             $left = str_split($left);
             $right = str_split($right);
@@ -29,7 +30,7 @@ final class Day3 extends BaseAdventOfCodeDay
         $score = 0;
 
         foreach (array_chunk($this->input, 3) as $rucksacks) {
-            [$rucksack1, $rucksack2, $rucksack3] = array_map(static fn($rucksack) => str_split($rucksack), $rucksacks);
+            [$rucksack1, $rucksack2, $rucksack3] = array_map(static fn ($rucksack) => str_split($rucksack), $rucksacks);
             $intersect = array_values(array_unique(array_intersect($rucksack1, $rucksack2, $rucksack3)));
             $score += $this->getCharPoints($intersect[0]);
         }
@@ -47,6 +48,6 @@ final class Day3 extends BaseAdventOfCodeDay
             return array_search($char, $lowerCase, true) + 1;
         }
 
-        return (array_search($char, $upperCase, true) + 27);
+        return array_search($char, $upperCase, true) + 27;
     }
 }

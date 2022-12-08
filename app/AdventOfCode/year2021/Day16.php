@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
@@ -48,6 +49,7 @@ final class Day16 extends BaseAdventOfCodeDay
                 $type = $this->read($binary);
                 $number .= $this->read($binary, 4, true);
             } while ($type !== 0);
+
             return [...$packet, 'value' => base_convert($number, 2, 10)];
         }
 
@@ -70,7 +72,7 @@ final class Day16 extends BaseAdventOfCodeDay
         }
 
         $subValues = array_map(
-            static fn($subPacket) => $subPacket['value'],
+            static fn ($subPacket) => $subPacket['value'],
             $packet['packets'],
         );
 
@@ -121,6 +123,7 @@ final class Day16 extends BaseAdventOfCodeDay
         foreach ($packet['packets'] as $subPacket) {
             $packetsVersionSum += $this->sumVersions($subPacket);
         }
+
         return $packet['version'] + $packetsVersionSum;
     }
 

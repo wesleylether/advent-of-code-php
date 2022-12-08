@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020;
@@ -45,6 +46,7 @@ class Day7 extends BaseAdventOfCodeDay
             $containers[] = $candidate->name;
             $candidates = \array_merge($candidates, $candidate->containedBy);
         }
+
         return count(\array_unique($containers));
     }
 

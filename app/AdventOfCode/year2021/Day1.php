@@ -1,10 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
 
 use App\AdventOfCode\BaseAdventOfCodeDay;
-use App\AdventOfCode\year2021\DTO\Day1DTO;
 
 final class Day1 extends BaseAdventOfCodeDay
 {

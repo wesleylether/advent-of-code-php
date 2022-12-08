@@ -1,15 +1,16 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
 
 use App\AdventOfCode\BaseAdventOfCodeDay;
-use JetBrains\PhpStorm\Pure;
 use function array_diff;
 use function array_intersect;
 use function array_map;
 use function count;
 use function explode;
+use JetBrains\PhpStorm\Pure;
 use function str_split;
 
 final class Day8 extends BaseAdventOfCodeDay
@@ -74,7 +75,8 @@ final class Day8 extends BaseAdventOfCodeDay
     }
 
     #[Pure]
-    protected function determineNumbers(array $data): array {
+    protected function determineNumbers(array $data): array
+    {
         $numbers = [];
         foreach ($data as $value) {
             if ($number = $this->countValueToNumber($value)) {
@@ -142,11 +144,11 @@ final class Day8 extends BaseAdventOfCodeDay
             [$inputNumbers, $outputNumbers] = explode(' | ', $item);
             $data[] = [
                 'numbers' => array_map(
-                    static fn($x) => str_split($x),
+                    static fn ($x) => str_split($x),
                     explode(' ', $inputNumbers),
                 ),
                 'output' => array_map(
-                    static fn($x) => str_split($x),
+                    static fn ($x) => str_split($x),
                     explode(' ', $outputNumbers),
                 ),
             ];

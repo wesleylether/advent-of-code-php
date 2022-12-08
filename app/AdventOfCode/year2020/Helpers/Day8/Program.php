@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020\Helpers\Day8;
@@ -6,9 +7,13 @@ namespace App\AdventOfCode\year2020\Helpers\Day8;
 final class Program
 {
     public int $index = 0;
+
     public int $accumulator = 0;
+
     public array $instructions;
+
     public array $seen = [];
+
     public bool $isInfinite = false;
 
     public function __construct(array $instructions)

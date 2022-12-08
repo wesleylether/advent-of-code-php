@@ -1,16 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode;
 
+use function explode;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use function explode;
 
 abstract class BaseAdventOfCodeDay
 {
     protected Command $command;
+
     protected array $input;
 
     public function __construct(Command $command, string $inputFile)
@@ -59,5 +61,6 @@ abstract class BaseAdventOfCodeDay
     }
 
     abstract public function one(): void;
+
     abstract public function two(): void;
 }

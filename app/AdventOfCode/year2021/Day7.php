@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
@@ -60,7 +61,7 @@ final class Day7 extends BaseAdventOfCodeDay
     protected function getPuzzleInput(): array
     {
         return array_map(
-            static fn($number) => (int) $number,
+            static fn ($number) => (int) $number,
             explode(',', $this->input[0]),
         );
     }

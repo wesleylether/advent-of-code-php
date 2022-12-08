@@ -1,10 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020;
 
 use App\AdventOfCode\BaseAdventOfCodeDay;
-use Illuminate\Console\Command;
 
 class Day3 extends BaseAdventOfCodeDay
 {
@@ -35,6 +35,7 @@ class Day3 extends BaseAdventOfCodeDay
 
             $total["$right-$down"] = $trees;
         }
+
         return $total;
     }
 

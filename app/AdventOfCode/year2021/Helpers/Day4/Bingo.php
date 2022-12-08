@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021\Helpers\Day4;
@@ -61,7 +62,7 @@ final class Bingo
 
         foreach ($this->rows as $row) {
             foreach ($row as $number => $called) {
-                if (!$called) {
+                if (! $called) {
                     $count += $number;
                 }
             }

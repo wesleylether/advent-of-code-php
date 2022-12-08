@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020;
@@ -17,6 +18,7 @@ class Day4 extends BaseAdventOfCodeDay
             if ($data === '') {
                 $passports[] = $passport;
                 $passport = [];
+
                 continue;
             }
 

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2020;
@@ -11,10 +12,10 @@ class Day13 extends BaseAdventOfCodeDay
     {
         $timeStamp = (int) $this->input[0];
         \preg_match_all('/(\d)+/', $this->input[1], $matches);
-        $busses = \array_map(static fn($bus) => (int) $bus, $matches[0]);
+        $busses = \array_map(static fn ($bus) => (int) $bus, $matches[0]);
 
         $busMap = \array_map(
-            static fn($busId) => $busId - ($timeStamp % $busId),
+            static fn ($busId) => $busId - ($timeStamp % $busId),
             \array_combine($busses, $busses),
         );
 
@@ -37,6 +38,7 @@ class Day13 extends BaseAdventOfCodeDay
         while (true) {
             if ($busses[$step] === 'x') {
                 $step++;
+
                 continue;
             }
             if (($timestamp + $step) % $busses[$step] === 0) {

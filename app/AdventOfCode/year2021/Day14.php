@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\AdventOfCode\year2021;
@@ -40,7 +41,7 @@ final class Day14 extends BaseAdventOfCodeDay
             if (isset($polymer[$i + 1])) {
                 $group = implode([$polymer[$i], $polymer[$i + 1]]);
                 if (isset($polyPairs[$group])) {
-                    ++$polyPairs[$group];
+                    $polyPairs[$group]++;
                 } else {
                     $polyPairs[$group] = 1;
                 }
@@ -51,14 +52,14 @@ final class Day14 extends BaseAdventOfCodeDay
         while (++$step <= 40) {
             $tempPolyParis = [];
             foreach ($polyPairs as $polyPair => $count) {
-                $groupA = $polyPair[0] . $pairs[$polyPair];
+                $groupA = $polyPair[0].$pairs[$polyPair];
                 if (isset($tempPolyParis[$groupA])) {
                     $tempPolyParis[$groupA] += $count;
                 } else {
                     $tempPolyParis[$groupA] = $count;
                 }
 
-                $groupB = $pairs[$polyPair] . $polyPair[1];
+                $groupB = $pairs[$polyPair].$polyPair[1];
                 if (isset($tempPolyParis[$groupB])) {
                     $tempPolyParis[$groupB] += $count;
                 } else {
@@ -77,7 +78,7 @@ final class Day14 extends BaseAdventOfCodeDay
                 $counter[$polyPair[0]] = $count;
             }
         }
-        ++$counter[$polymer[count($polymer) - 1]];
+        $counter[$polymer[count($polymer) - 1]]++;
 
         $this->info(
             'Apply 40 steps of pair insertion to the polymer template and find the most and least common elements in the result. What do you get if you take the quantity of the most common element and subtract the quantity of the least common element?',
@@ -99,6 +100,7 @@ final class Day14 extends BaseAdventOfCodeDay
                 $delta[] = $m;
             }
         }
+
         return $delta;
     }
 
